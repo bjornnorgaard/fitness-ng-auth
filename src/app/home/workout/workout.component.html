@@ -1,0 +1,18 @@
+<md-card>
+  <md-card-title-group>
+    <md-card-title>New Workout</md-card-title>
+    <md-card-subtitle>Create new workout</md-card-subtitle>
+  </md-card-title-group>
+  <md-card-content>
+
+    <form role="form" (ngSubmit)="postWorkout()" [formGroup]="workoutFormGroup">
+      <md-form-field>
+        <input mdInput formControlName="title"  placeholder="Workout Title" type="text">
+      </md-form-field>
+      <br>
+
+      <button md-raised-button color="primary" type="submit" [disabled]="!workoutFormGroup.valid">CREATE</button>
+      <button md-button (click)="cancel()">CANCEL</button>
+    </form>
+  </md-card-content>
+</md-card>

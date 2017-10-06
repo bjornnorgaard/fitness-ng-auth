@@ -1,0 +1,41 @@
+<md-card *ngIf="workouts == undefined || workouts.length == 0">
+  <md-card-title-group>
+    <md-card-title>You should add some workouts</md-card-title>
+    <md-card-subtitle>Click 'Workout' in the navbar above</md-card-subtitle>
+  </md-card-title-group>
+</md-card>
+
+<div *ngFor="let w of workouts ">
+  <md-card>
+    <md-card-title-group>
+      <md-card-title>{{w.title}}</md-card-title>
+      <md-card-subtitle>Exercises in workout</md-card-subtitle>
+    </md-card-title-group>
+    <md-card-content>
+
+      <table *ngIf="w.exercises == undefined || w.exercises.length == 0">
+        <p>Click below to add an exercise</p>
+      </table>
+
+      <table *ngIf="w.exercises != undefined && w.exercises.length != 0">
+        <tr>
+          <th>Title</th>
+          <th>Desc</th>
+          <th>Sets</th>
+          <th>Reps</th>
+        </tr>
+        <tr *ngFor="let e of w.exercises">
+          <td>{{e.title}}</td>
+          <td>{{e.description}}</td>
+          <td>{{e.sets}}</td>
+          <td>{{e.reps}}</td>
+        </tr>
+      </table>
+
+      <md-card-actions style="padding-top: 2em;">
+        <button md-button color="primary" (click)=createExercise(w._id)>ADD EXERCISE</button>
+        <button md-button color="accent" (click)=logWorkout(w._id)>LOG ACTIVITY</button>
+      </md-card-actions>
+    </md-card-content>
+  </md-card>
+</div>
