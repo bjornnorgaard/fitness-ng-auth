@@ -11,4 +11,7 @@ export class AppComponent implements OnInit {
 
   }
 
+  showMenu() {
+    console.log('Should show menu');
+  }
 }
