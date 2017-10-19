@@ -60,10 +60,10 @@ export class AuthService {
       });
   }
 
-  private saveToken(token: string) {
+  public saveToken(token: string) {
     window.localStorage['fitness-token'] = token;
   }
-  private getToken() {
+  public getToken() {
     if (window.localStorage['fitness--token']) {
       return window.localStorage['fitness-token'];
     } else {
@@ -89,5 +89,9 @@ export class AuthService {
     } else {
       return false;
     }
+  }
+
+  public signOut(){
+    window.localStorage['fitness-token'] = '';
   }
 }

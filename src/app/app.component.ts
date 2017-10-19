@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from './shared/service/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
+  constructor(private authService: AuthService) {
+
+  }
+
   ngOnInit(): void {
 
   }
 
-  showMenu() {
-    console.log('Should show menu');
+  signout() {
+    this.authService.signOut();
+  }
+
+  isLoggedIn() {
+    this.authService.isLoggedIn();
   }
 }
