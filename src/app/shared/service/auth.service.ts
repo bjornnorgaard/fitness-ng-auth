@@ -40,7 +40,7 @@ export class AuthService {
     const url = `${this.baseUrl}/login`;
     this.http.post<AuthResponse>(url, user).subscribe(data => {
         console.log('Login successful: ' + data.msg);
-        alert('Login successful: ' + data.msg);
+        alert('Login successful: ' + data.msg + ' token: ' + data.token);
         this.saveToken(data.token);
         return true;
       },
