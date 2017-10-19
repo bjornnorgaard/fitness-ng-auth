@@ -4,6 +4,7 @@ import { FitnessService } from './service/fitness.service';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { NgMaterialModule } from '../ng-material/ng-material.module';
+import {AuthService} from './service/auth.service';
 
 @NgModule({
   imports: [
@@ -11,7 +12,7 @@ import { NgMaterialModule } from '../ng-material/ng-material.module';
     HttpClientModule,
   ],
   declarations: [],
-  providers: [FitnessService]
+  providers: [FitnessService, AuthService]
 })
 export class SharedModule {
 }

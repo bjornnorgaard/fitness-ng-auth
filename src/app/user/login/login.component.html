@@ -1,3 +1,27 @@
-<p>
-  login works!
-</p>
+<div class="main-div">
+    <md-card>
+      <md-card-title-group>
+        <md-card-title>Login</md-card-title>
+        <md-card-subtitle>Login with your user credentials</md-card-subtitle>
+      </md-card-title-group>
+      <md-card-content>
+        <form (ngSubmit)="login()" #newPlayerForm="ngForm">
+          <div md-dialog-content>
+
+            <md-input-container>
+              <input mdInput placeholder="Username" [(ngModel)]="userName" name="usernameInput" required>
+            </md-input-container>
+
+            <div>
+              <md-input-container class="row">
+                <input mdInput placeholder="Password" [(ngModel)]="password" name="passwordInput" type="password"  required>
+              </md-input-container>
+            </div>
+          </div>
+          <md-dialog-actions>
+            <button md-button md-raised-button color="accent" type="submit" [disabled]="!newPlayerForm.form.valid">Login</button>
+          </md-dialog-actions>
+        </form>
+      </md-card-content>
+    </md-card>
+</div>
