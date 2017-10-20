@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {MdSnackBar, MdDialog} from '@angular/material';
+import {MatDialog, MatSnackBar} from '@angular/material';
 import {Exercise} from '../../shared/class/exercises';
 import {Workout} from '../../shared/class/workout';
 import {FitnessService} from '../../shared/service/fitness.service';
 import {ExerciseComponent} from '../exercise/exercise.component';
 import {Router} from '@angular/router';
-import {AuthService} from "../../shared/service/auth.service";
+import {AuthService} from '../../shared/service/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -17,9 +17,9 @@ export class HomeComponent implements OnInit {
   workouts: Workout[];
 
   constructor(private fitnessService: FitnessService,
-              private snackbar: MdSnackBar,
+              private snackbar: MatSnackBar,
               private router: Router,
-              private dialog: MdDialog,
+              private dialog: MatDialog,
               private authService: AuthService) {
   }
 

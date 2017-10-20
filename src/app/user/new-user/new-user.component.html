@@ -1,27 +1,27 @@
 <div class="main-div">
-  <md-card>
-    <md-card-title-group>
-      <md-card-title>Create user</md-card-title>
-      <md-card-subtitle>Create a new user</md-card-subtitle>
-    </md-card-title-group>
-    <md-card-content>
+  <mat-card>
+    <mat-card-title-group>
+      <mat-card-title>Create user</mat-card-title>
+      <mat-card-subtitle>Create a new user</mat-card-subtitle>
+    </mat-card-title-group>
+    <mat-card-content>
       <form (ngSubmit)="createUser()" #newPlayerForm="ngForm">
-        <div md-dialog-content>
+        <div mat-dialog-content>
 
-          <md-input-container>
-            <input mdInput placeholder="Username" [(ngModel)]="userName" name="usernameInput" required>
-          </md-input-container>
+          <mat-input-container>
+            <input matInput placeholder="Username" [(ngModel)]="userName" name="usernameInput" required>
+          </mat-input-container>
 
           <div>
-            <md-input-container class="row">
-              <input mdInput placeholder="Password" [(ngModel)]="password" name="passwordInput" type="password" required>
-            </md-input-container>
+            <mat-input-container class="row">
+              <input matInput placeholder="Password" [(ngModel)]="password" name="passwordInput" type="password" required>
+            </mat-input-container>
           </div>
         </div>
-        <md-dialog-actions>
-          <button md-button md-raised-button color="accent" type="submit" [disabled]="!newPlayerForm.form.valid">Create user</button>
-        </md-dialog-actions>
+        <mat-dialog-actions>
+          <button mat-button mat-raised-button color="accent" type="submit" [disabled]="!newPlayerForm.form.valid">Create user</button>
+        </mat-dialog-actions>
       </form>
-    </md-card-content>
-  </md-card>
+    </mat-card-content>
+  </mat-card>
 </div>

@@ -1,15 +1,15 @@
-<md-toolbar color="primary">
+<mat-toolbar color="primary">
   <i class="fa fa-heart-o brand-icon"></i>
   <p class="brand-icon">Fitness</p>
-  <a md-button routerLink="/home" routerLinkActive="active">Home</a>
-  <a md-button routerLink="/workout" *ngIf="isLoggedIn()"  routerLinkActive="active">Workout</a>
+  <a mat-button routerLink="/home" routerLinkActive="active">Home</a>
+  <a mat-button routerLink="/workout" *ngIf="isLoggedIn()"  routerLinkActive="active">Workout</a>
   <span class="fill-middle-space"></span>
-  <div class="md-toolbar-tools">
-    <a md-button routerLink="/login" *ngIf="!isLoggedIn()" routerLinkActive="active">User login</a>
-    <a md-button routerLink="/create-user" *ngIf="!isLoggedIn()" routerLinkActive="active">Create user</a>
-    <a md-button (click)="signout()" *ngIf="isLoggedIn()" routerLinkActive="active">Sign out</a>
+  <div class="mat-toolbar-tools">
+    <a mat-button routerLink="/login" *ngIf="!isLoggedIn()" routerLinkActive="active">User login</a>
+    <a mat-button routerLink="/create-user" *ngIf="!isLoggedIn()" routerLinkActive="active">Create user</a>
+    <a mat-button (click)="signout()" *ngIf="isLoggedIn()" routerLinkActive="active">Sign out</a>
   </div>
-</md-toolbar>
+</mat-toolbar>
 
 <div class="content">
   <router-outlet></router-outlet>
