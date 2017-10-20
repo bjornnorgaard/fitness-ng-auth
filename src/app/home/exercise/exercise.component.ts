@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MdDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material';
 import { Exercise } from '../../shared/class/exercises';
 
 @Component({
@@ -14,7 +14,7 @@ export class ExerciseComponent {
   public exerciseDescription: string;
   public setsAmount: string;
 
-  constructor(public dialogRef: MdDialogRef<ExerciseComponent>) {
+  constructor(public dialogRef: MatDialogRef<ExerciseComponent>) {
   }
 
   closeDialog() {

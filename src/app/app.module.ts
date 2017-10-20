@@ -1,12 +1,13 @@
-import { NgMaterialModule } from './ng-material/ng-material.module';
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SharedModule } from './shared/shared.module';
-import { HomeModule } from './home/home.module';
 import { ExerciseComponent } from './home/exercise/exercise.component';
+import { HomeModule } from './home/home.module';
+import { NgMaterialModule } from './ng-material/ng-material.module';
+import { SharedModule } from './shared/shared.module';
+import { UserModule } from './user/user.module';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -14,15 +15,17 @@ import { ExerciseComponent } from './home/exercise/exercise.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     NgMaterialModule,
+    AppRoutingModule,
     SharedModule,
     HomeModule,
+    UserModule,
   ],
-  providers: [],
   entryComponents: [
     ExerciseComponent
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [AuthGuard]
 })
-export class AppModule { }
+export class AppModule {
+}

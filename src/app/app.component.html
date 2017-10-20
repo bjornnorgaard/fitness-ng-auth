@@ -1,9 +1,18 @@
-<md-toolbar color="primary">
+<mat-toolbar color="primary">
   <i class="fa fa-heart-o brand-icon"></i>
   <p class="brand-icon">Fitness</p>
-  <a md-button routerLink="/home" routerLinkActive="active">Home</a>
-  <a md-button routerLink="/workout" routerLinkActive="active">Workout</a>
-</md-toolbar>
+  <a mat-button routerLink="/home" routerLinkActive="active">Home</a>
+  <a mat-button routerLink="/workout" *ngIf="isLoggedIn()"  routerLinkActive="active">Workout</a>
+  <span class="fill-middle-space"></span>
+  <div class="mat-toolbar-tools">
+    <a mat-button routerLink="/login" *ngIf="!isLoggedIn()" routerLinkActive="active">User login</a>
+    <a mat-button routerLink="/create-user" *ngIf="!isLoggedIn()" routerLinkActive="active">Create user</a>
+    <mat-chip-list *ngIf="isLoggedIn()" style="display:inline-block;">
+      <mat-chip color="accent">{{ loggedInUserName() }}</mat-chip>
+    </mat-chip-list>
+    <a mat-button (click)="signout()" *ngIf="isLoggedIn()" routerLinkActive="active">Sign out</a>
+  </div>
+</mat-toolbar>
 
 <div class="content">
   <router-outlet></router-outlet>
