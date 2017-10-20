@@ -8,6 +8,7 @@ import { HomeModule } from './home/home.module';
 import { NgMaterialModule } from './ng-material/ng-material.module';
 import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
+import { AuthGuard } from './shared/service/authguard';
 
 @NgModule({
   declarations: [
@@ -18,10 +19,9 @@ import { UserModule } from './user/user.module';
     AppRoutingModule,
     NgMaterialModule,
     SharedModule,
-    UserModule,
     MatIconModule,
     HomeModule,
-    SharedModule,
+    UserModule,
   ],
   entryComponents: [
     ExerciseComponent

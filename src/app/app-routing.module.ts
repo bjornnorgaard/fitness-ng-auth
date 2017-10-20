@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home/home.component';
 import { WorkoutComponent } from './home/workout/workout.component';
 import { LoginComponent } from './user/login/login.component';
 import { NewUserComponent } from './user/new-user/new-user.component';
+import { AuthGuard } from './shared/service/authguard';
 
 const routes: Routes = [
   {
@@ -16,7 +17,7 @@ const routes: Routes = [
   },
   {
     path: 'workout',
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     component: WorkoutComponent
   },
   {
