@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  fitnessApiUrl: 'https://ittweb-fitness-api-dev.herokuapp.com'
+  fitnessApiUrl: 'http://localhost:3000'
 };

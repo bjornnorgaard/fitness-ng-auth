@@ -1,9 +1,10 @@
-import {AuthService} from './auth.service';
-import {ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterStateSnapshot} from '@angular/router';
+import { CanActivate } from '@angular/router';
+import { AuthService } from './auth.service';
 
 export class AuthGuard implements CanActivate {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) {
+  }
 
   public canActivate() {
     if (this.authService.isLoggedIn()) {

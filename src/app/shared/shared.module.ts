@@ -1,17 +1,20 @@
-import {CommonModule} from '@angular/common';
-import {NgModule} from '@angular/core';
-import {FitnessService} from './service/fitness.service';
-import {HttpClientModule} from '@angular/common/http';
-import {AuthService} from './service/auth.service';
-
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { AuthService } from './service/auth.service';
+import { FitnessService } from './service/fitness.service';
 
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule
   ],
-  declarations: [],
-  providers: [FitnessService, AuthService]
+  declarations: [
+  ],
+  providers: [
+    FitnessService,
+    AuthService,
+  ],
 })
 export class SharedModule {
 }

@@ -1,15 +1,16 @@
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {environment} from '../../../environments/environment';
-import {User} from '../class/user';
-import {AuthResponse} from '../class/authresponse';
+import { environment } from '../../../environments/environment';
+import { AuthResponse } from '../class/authresponse';
+import { User } from '../class/user';
 
 @Injectable()
 export class AuthService {
 
   private baseUrl = environment.fitnessApiUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   register(name: string, password: string) {
     const user = new User(name, password);
@@ -19,7 +20,7 @@ export class AuthService {
         alert('Register successful: ' + data);
         return true;
       },
-          // Errors will call this callback instead:
+      // Errors will call this callback instead:
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {
           // A client-side or network error occurred. Handle it accordingly.
@@ -63,6 +64,7 @@ export class AuthService {
   public saveToken(token: string) {
     window.localStorage['fitness-token'] = token;
   }
+
   public getToken() {
     if (window.localStorage['fitness-token']) {
       console.log('GetToken called: ' + window.localStorage['fitness-token']);
@@ -93,7 +95,7 @@ export class AuthService {
     }
   }
 
-  public signOut(){
+  public signOut() {
     window.localStorage['fitness-token'] = '';
   }
 }
