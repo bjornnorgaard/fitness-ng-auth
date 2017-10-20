@@ -1,15 +1,30 @@
-import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
-import {AuthService} from './auth.service';
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { AuthService } from './auth.service';
 
+@Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private auth: AuthService) {}
+
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-// Get the auth header from the service.
-    const authHeader = 'Bearer ' + this.auth.getToken();
-// Clone the request to add the new header.
-    const authReq = req.clone({headers: req.headers.set('Authorization', authHeader)});
-// Pass on the cloned request instead of the original request.
-    return next.handle(authReq);
+    console.log('AuthInterceptor intercept');
+
+    let token = '';
+    const localStorage = 'fitness-token';
+    if (window.localStorage[localStorage]) {
+      token = window.localStorage[localStorage];
+    }
+
+    console.log('Token: ' + token);
+
+    const request = req.clone({
+      setHeaders: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+
+    // Pass on the cloned request instead of the original request.
+    // return next.handle(authReq);
+    return next.handle(request);
   }
 }

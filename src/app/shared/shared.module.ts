@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { AuthService } from './service/auth.service';
+import { AuthInterceptor } from './service/authintercepter';
 import { FitnessService } from './service/fitness.service';
-import { AuthGuard } from './service/authguard';
 
 @NgModule({
   imports: [
@@ -11,9 +11,9 @@ import { AuthGuard } from './service/authguard';
     HttpClientModule
   ],
   providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     FitnessService,
     AuthService,
-    AuthGuard
   ],
 })
 export class SharedModule {

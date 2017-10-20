@@ -67,7 +67,7 @@ export class AuthService {
 
   public getToken() {
     if (window.localStorage['fitness-token']) {
-      console.log('GetToken called: ' + window.localStorage['fitness-token']);
+      // console.log('GetToken called: ' + window.localStorage['fitness-token']);
       return window.localStorage['fitness-token'];
     } else {
       return '';
@@ -88,7 +88,7 @@ export class AuthService {
     const token = this.getToken();
     if (token) {
       const payload = JSON.parse(window.atob(token.split('.')[1]));
-      console.log('Is user is logged in: ' + (payload.exp > Date.now() / 1000));
+      // console.log('Is user is logged in: ' + (payload.exp > Date.now() / 1000));
       return payload.exp > Date.now() / 1000;
     } else {
       return false;

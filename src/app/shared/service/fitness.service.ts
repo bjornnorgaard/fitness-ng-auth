@@ -33,6 +33,4 @@ export class FitnessService {
     this.http.post(this.baseUrl + '/logs', {workoutId}).subscribe();
   }
 
-
-
 }
