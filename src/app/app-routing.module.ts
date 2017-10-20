@@ -4,14 +4,35 @@ import { HomeComponent } from './home/home/home.component';
 import { WorkoutComponent } from './home/workout/workout.component';
 import { LoginComponent} from './user/login/login.component';
 import { NewUserComponent} from './user/new-user/new-user.component';
+import {AuthGuard} from "./shared/service/authguard";
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'home', component: HomeComponent},
-  {path: 'workout', component: WorkoutComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'create-user', component: NewUserComponent },
-  {path: '**', component: HomeComponent},
+  {
+    path: '',
+    canActivate: [AuthGuard],
+    component: HomeComponent
+  },
+  {
+    path: 'home',
+    canActivate: [AuthGuard],
+    component: HomeComponent
+  },
+  {
+    path: 'workout',
+    canActivate: [AuthGuard],
+    component: WorkoutComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent},
+  {
+    path: 'create-user',
+    component: NewUserComponent
+  },
+  {
+    path: '**',
+    canActivate: [AuthGuard],
+    component: HomeComponent},
 ];
 
 @NgModule({

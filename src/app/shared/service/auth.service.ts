@@ -14,9 +14,9 @@ export class AuthService {
   register(name: string, password: string) {
     const user = new User(name, password);
     const url = `${this.baseUrl}/register`;
-    this.http.post<string>(url, user).subscribe(data => {
+    this.http.post<string>(url, {name, password}).subscribe(data => {
         console.log('User was created successfully' + data);
-        alert('Login successful: ' + data);
+        alert('Register successful: ' + data);
         return true;
       },
           // Errors will call this callback instead:
@@ -38,7 +38,7 @@ export class AuthService {
   login(name: string, password: string) {
     const user = new User(name, password);
     const url = `${this.baseUrl}/login`;
-    this.http.post<AuthResponse>(url, user).subscribe(data => {
+    this.http.post<AuthResponse>(url, {name, password}).subscribe(data => {
         console.log('Login successful: ' + data.msg);
         alert('Login successful: ' + data.msg + ' token: ' + data.token);
         this.saveToken(data.token);

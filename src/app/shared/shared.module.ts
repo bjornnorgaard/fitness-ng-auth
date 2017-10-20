@@ -13,7 +13,7 @@ import {AuthGuard} from './service/authguard';
     HttpClientModule,
   ],
   declarations: [],
-  providers: [FitnessService, AuthService, AuthGuard]
+  providers: [FitnessService, AuthService]
 })
 export class SharedModule {
 }
