@@ -7,6 +7,9 @@
   <div class="mat-toolbar-tools">
     <a mat-button routerLink="/login" *ngIf="!isLoggedIn()" routerLinkActive="active">User login</a>
     <a mat-button routerLink="/create-user" *ngIf="!isLoggedIn()" routerLinkActive="active">Create user</a>
+    <mat-chip-list *ngIf="isLoggedIn()" style="display:inline-block;">
+      <mat-chip color="accent">{{ loggedInUserName() }}</mat-chip>
+    </mat-chip-list>
     <a mat-button (click)="signout()" *ngIf="isLoggedIn()" routerLinkActive="active">Sign out</a>
   </div>
 </mat-toolbar>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from './shared/service/auth.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,8 @@ import {AuthService} from './shared/service/auth.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,
+              private router: Router) {
 
   }
 
@@ -16,8 +18,13 @@ export class AppComponent implements OnInit {
 
   }
 
+  loggedInUserName() {
+    return this.authService.currentUser().username;
+  }
+
   signout() {
     this.authService.signOut();
+    this.router.navigate(['*']);
   }
 
   isLoggedIn() {

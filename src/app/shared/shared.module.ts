@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AuthService } from './service/auth.service';
 import { AuthInterceptor } from './service/authintercepter';
 import { FitnessService } from './service/fitness.service';
+import {NgMaterialModule} from '../ng-material/ng-material.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    NgMaterialModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},

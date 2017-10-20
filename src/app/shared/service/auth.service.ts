@@ -3,13 +3,17 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { AuthResponse } from '../class/authresponse';
 import { User } from '../class/user';
+import {MatSnackBar} from "@angular/material";
+import {Router} from "@angular/router";
 
 @Injectable()
 export class AuthService {
 
   private baseUrl = environment.fitnessApiUrl;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private snackbar: MatSnackBar,
+              private router: Router) {
   }
 
   register(name: string, password: string) {
@@ -17,7 +21,7 @@ export class AuthService {
     const url = `${this.baseUrl}/register`;
     this.http.post<string>(url, user).subscribe(data => {
         console.log('User was created successfully' + data);
-        alert('Register successful: ' + data);
+        this.snackbar.open(data, null, {duration: 1500});
         return true;
       },
       // Errors will call this callback instead:
@@ -41,8 +45,9 @@ export class AuthService {
     const url = `${this.baseUrl}/login`;
     this.http.post<AuthResponse>(url, user).subscribe(data => {
         console.log('Login successful: ' + data.msg);
-        alert('Login successful: ' + data.msg + ' token: ' + data.token);
+        this.snackbar.open(data.msg, null, {duration: 1500});
         this.saveToken(data.token);
+        this.router.navigate(['*']);
         return true;
       },
       // Errors will call this callback instead:
@@ -78,7 +83,8 @@ export class AuthService {
     if (this.isLoggedIn()) {
       const token = this.getToken();
       const payload = JSON.parse(window.atob(token.split('.')[1]));
-      return new User(payload.email, payload.name);
+      console.log('currentuser: ' + payload.username + '' + payload.name);
+      return new User(payload.username, payload.name);
     } else {
       return;
     }
