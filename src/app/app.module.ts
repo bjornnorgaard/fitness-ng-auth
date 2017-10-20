@@ -8,6 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import { UserModule} from './user/user.module';
 import { HomeModule } from './home/home.module';
 import { ExerciseComponent } from './home/exercise/exercise.component';
+import {AuthGuard} from "./shared/service/authguard";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { ExerciseComponent } from './home/exercise/exercise.component';
     MatIconModule,
     HomeModule,
   ],
-  providers: [],
+  providers: [AuthGuard],
   entryComponents: [
     ExerciseComponent
   ],

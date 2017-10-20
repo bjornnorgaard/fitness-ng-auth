@@ -33,8 +33,8 @@
       </table>
 
       <md-card-actions style="padding-top: 2em;">
-        <button md-button color="primary" (click)=createExercise(w._id)>ADD EXERCISE</button>
-        <button md-button color="accent" (click)=logWorkout(w._id)>LOG ACTIVITY</button>
+        <button *ngIf="isLoggedIn()" md-button color="primary" (click)=createExercise(w._id)>ADD EXERCISE</button>
+        <button *ngIf="isLoggedIn()" md-button color="accent" (click)=logWorkout(w._id)>LOG ACTIVITY</button>
       </md-card-actions>
     </md-card-content>
   </md-card>

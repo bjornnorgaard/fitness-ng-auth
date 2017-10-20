@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { MdSnackBar, MdDialog } from '@angular/material';
-import { Exercise } from '../../shared/class/exercises';
-import { Workout } from '../../shared/class/workout';
-import { FitnessService } from '../../shared/service/fitness.service';
-import { ExerciseComponent } from '../exercise/exercise.component';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {MdSnackBar, MdDialog} from '@angular/material';
+import {Exercise} from '../../shared/class/exercises';
+import {Workout} from '../../shared/class/workout';
+import {FitnessService} from '../../shared/service/fitness.service';
+import {ExerciseComponent} from '../exercise/exercise.component';
+import {Router} from '@angular/router';
+import {AuthService} from "../../shared/service/auth.service";
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,8 @@ export class HomeComponent implements OnInit {
   constructor(private fitnessService: FitnessService,
               private snackbar: MdSnackBar,
               private router: Router,
-              private dialog: MdDialog) {
+              private dialog: MdDialog,
+              private authService: AuthService) {
   }
 
   ngOnInit(): void {
@@ -54,5 +56,9 @@ export class HomeComponent implements OnInit {
     setTimeout(() => {
       window.location.reload();
     }, 100);
+  }
+
+  private isLoggedIn() {
+    return this.authService.isLoggedIn();
   }
 }

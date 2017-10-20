@@ -3,15 +3,13 @@ import {ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterSta
 
 export class AuthGuard implements CanActivate {
 
-  constructor(private router: Router,
-              private authService: AuthService) { }
+  constructor(private authService: AuthService) { }
 
   public canActivate() {
     if (this.authService.isLoggedIn()) {
       return true;
     }
 
-    this.router.navigate(['/login']);
     return false;
   }
 }

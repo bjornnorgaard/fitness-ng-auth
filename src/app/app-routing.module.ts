@@ -9,12 +9,10 @@ import {AuthGuard} from "./shared/service/authguard";
 const routes: Routes = [
   {
     path: '',
-    canActivate: [AuthGuard],
     component: HomeComponent
   },
   {
     path: 'home',
-    canActivate: [AuthGuard],
     component: HomeComponent
   },
   {
@@ -31,7 +29,6 @@ const routes: Routes = [
   },
   {
     path: '**',
-    canActivate: [AuthGuard],
     component: HomeComponent},
 ];
 
