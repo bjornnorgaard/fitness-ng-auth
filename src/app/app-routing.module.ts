@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home/home.component';
 import { WorkoutComponent } from './home/workout/workout.component';
-import { AuthGuard } from './shared/service/authguard';
 import { LoginComponent } from './user/login/login.component';
 import { NewUserComponent } from './user/new-user/new-user.component';
 
@@ -17,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'workout',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     component: WorkoutComponent
   },
   {
